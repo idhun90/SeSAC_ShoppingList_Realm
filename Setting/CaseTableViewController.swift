@@ -13,7 +13,6 @@ class CaseTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,7 +27,7 @@ class CaseTableViewController: UITableViewController {
         case 2: return HeaderTitle.others.rawValue
         default: return "section"
         }
-        
+
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -38,6 +37,7 @@ class CaseTableViewController: UITableViewController {
         case 2: return othersName.count
         default: return 0
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
