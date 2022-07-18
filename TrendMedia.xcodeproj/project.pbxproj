@@ -16,6 +16,7 @@
 		141039E12884F10800A122DD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141039E02884F10800A122DD /* Home.storyboard */; };
 		141039E32884FE3C00A122DD /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141039E22884FE3C00A122DD /* SettingTableViewController.swift */; };
 		141039E52885232200A122DD /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141039E42885232200A122DD /* Setting.storyboard */; };
+		141039E82885389700A122DD /* CaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141039E72885389700A122DD /* CaseTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		141039E02884F10800A122DD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		141039E22884FE3C00A122DD /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		141039E42885232200A122DD /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		141039E72885389700A122DD /* CaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				141039E42885232200A122DD /* Setting.storyboard */,
+				141039E72885389700A122DD /* CaseTableViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141039E82885389700A122DD /* CaseTableViewController.swift in Sources */,
 				141039E32884FE3C00A122DD /* SettingTableViewController.swift in Sources */,
 				141039D12884DDEC00A122DD /* ViewController.swift in Sources */,
 				141039CD2884DDEC00A122DD /* AppDelegate.swift in Sources */,
