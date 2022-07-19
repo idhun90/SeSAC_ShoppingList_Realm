@@ -14,6 +14,8 @@ class ShoppingTableViewController: UITableViewController {
         addButtonUI()
         headViewUI()
         
+        
+        
     }
 
     @IBAction func addList(_ sender: UIButton) {
@@ -57,11 +59,16 @@ class ShoppingTableViewController: UITableViewController {
         cell.favoritesButton.setImage(UIImage(systemName: "star"), for: .normal) // star.fill
         cell.favoritesButton.tintColor = .black
         
+//        헤더뷰 너비 조절 실패,,
+//        tableView.tableHeaderView = headView
+//        tableView.tableHeaderView?.frame.width = cell.frame.width
+        
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        return 60
     }
     
     // Edit 허용
@@ -104,7 +111,6 @@ class ShoppingTableViewController: UITableViewController {
         headView.backgroundColor = .secondarySystemBackground
         headView.layer.cornerRadius = 30
         headView.layer.masksToBounds = true
-        
     }
 
 }
