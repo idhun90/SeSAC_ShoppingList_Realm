@@ -85,9 +85,9 @@ class ShoppingTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 0
+//    }
     
     
     
@@ -98,7 +98,7 @@ class ShoppingTableViewController: UITableViewController {
         searchTextField.borderStyle = .none
     }
     
-    //'추가'버튼 UI 초기화
+    // '추가'버튼 UI 초기화
     func addButtonUI() {
         addButton.setTitle("추가", for: .normal)
         addButton.setTitleColor(.black, for: .normal)
