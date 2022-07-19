@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8CS-6m-nwJ">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -48,7 +48,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TH-7o-n6k">
-                                            <rect key="frame" x="97" y="37" width="309" height="20"/>
+                                            <rect key="frame" x="101" y="34" width="305" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="Y8v-iU-zmV"/>
                                             </constraints>
@@ -57,13 +57,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xs6-V6-uS7">
-                                            <rect key="frame" x="97" y="62" width="309" height="20.5"/>
+                                            <rect key="frame" x="101" y="56" width="305" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y1-21-jtG">
-                                            <rect key="frame" x="97" y="12" width="309" height="20"/>
+                                            <rect key="frame" x="101" y="12" width="305" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="XaB-QI-Wev"/>
                                             </constraints>
@@ -75,18 +75,18 @@
                                     <constraints>
                                         <constraint firstItem="JYG-Qa-Uul" firstAttribute="centerY" secondItem="P0w-De-nsi" secondAttribute="centerY" id="0zA-zM-xyq"/>
                                         <constraint firstItem="JYG-Qa-Uul" firstAttribute="leading" secondItem="P0w-De-nsi" secondAttribute="leading" constant="8" id="6MF-Eg-tU7"/>
-                                        <constraint firstItem="Xs6-V6-uS7" firstAttribute="leading" secondItem="JYG-Qa-Uul" secondAttribute="trailing" constant="4" id="9Sq-eL-8gh"/>
+                                        <constraint firstItem="Xs6-V6-uS7" firstAttribute="leading" secondItem="JYG-Qa-Uul" secondAttribute="trailing" constant="8" id="9Sq-eL-8gh"/>
                                         <constraint firstAttribute="bottom" secondItem="JYG-Qa-Uul" secondAttribute="bottom" constant="8" id="INv-Si-FDw"/>
-                                        <constraint firstItem="8TH-7o-n6k" firstAttribute="top" secondItem="7Y1-21-jtG" secondAttribute="bottom" constant="5" id="UH2-qA-ZbI"/>
-                                        <constraint firstItem="8TH-7o-n6k" firstAttribute="leading" secondItem="JYG-Qa-Uul" secondAttribute="trailing" constant="4" id="acL-0p-J7p"/>
-                                        <constraint firstItem="Xs6-V6-uS7" firstAttribute="top" secondItem="8TH-7o-n6k" secondAttribute="bottom" constant="5" id="bkd-CO-e8K"/>
+                                        <constraint firstItem="8TH-7o-n6k" firstAttribute="top" secondItem="7Y1-21-jtG" secondAttribute="bottom" constant="2" id="UH2-qA-ZbI"/>
+                                        <constraint firstItem="8TH-7o-n6k" firstAttribute="leading" secondItem="JYG-Qa-Uul" secondAttribute="trailing" constant="8" id="acL-0p-J7p"/>
+                                        <constraint firstItem="Xs6-V6-uS7" firstAttribute="top" secondItem="8TH-7o-n6k" secondAttribute="bottom" constant="2" id="bkd-CO-e8K"/>
                                         <constraint firstAttribute="trailing" secondItem="7Y1-21-jtG" secondAttribute="trailing" constant="8" id="gPA-a1-Izq"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xs6-V6-uS7" secondAttribute="bottom" constant="8" id="ipb-tb-cfM"/>
                                         <constraint firstAttribute="trailing" secondItem="8TH-7o-n6k" secondAttribute="trailing" constant="8" id="mlF-Fc-WLs"/>
                                         <constraint firstItem="JYG-Qa-Uul" firstAttribute="top" secondItem="P0w-De-nsi" secondAttribute="top" constant="8" id="qPn-AA-LyX"/>
                                         <constraint firstItem="7Y1-21-jtG" firstAttribute="top" secondItem="P0w-De-nsi" secondAttribute="top" constant="12" id="r0g-Hk-Unq"/>
                                         <constraint firstAttribute="trailing" secondItem="Xs6-V6-uS7" secondAttribute="trailing" constant="8" id="x1j-ha-CqD"/>
-                                        <constraint firstItem="7Y1-21-jtG" firstAttribute="leading" secondItem="JYG-Qa-Uul" secondAttribute="trailing" constant="4" id="y0v-fJ-2fr"/>
+                                        <constraint firstItem="7Y1-21-jtG" firstAttribute="leading" secondItem="JYG-Qa-Uul" secondAttribute="trailing" constant="8" id="y0v-fJ-2fr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
