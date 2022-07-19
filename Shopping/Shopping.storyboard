@@ -43,13 +43,21 @@
                                         <action selector="addList:" destination="zFI-UV-rpf" eventType="touchUpInside" id="D30-NJ-6eZ"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBA-f9-Qrq">
+                                    <rect key="frame" x="20" y="0.0" width="374" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                </view>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="aBA-f9-Qrq" secondAttribute="trailing" constant="20" id="0yK-dz-z6y"/>
                                 <constraint firstItem="uhg-gB-Otw" firstAttribute="leading" secondItem="GMv-Jz-6Yc" secondAttribute="leading" constant="20" id="DCs-1s-oN5"/>
+                                <constraint firstItem="aBA-f9-Qrq" firstAttribute="top" secondItem="GMv-Jz-6Yc" secondAttribute="top" id="KCZ-cV-4Uq"/>
                                 <constraint firstItem="ieN-cm-AL0" firstAttribute="centerY" secondItem="GMv-Jz-6Yc" secondAttribute="centerY" id="LFT-KG-6aI"/>
                                 <constraint firstItem="uhg-gB-Otw" firstAttribute="centerY" secondItem="GMv-Jz-6Yc" secondAttribute="centerY" id="YT8-cK-S7j"/>
                                 <constraint firstAttribute="trailing" secondItem="ieN-cm-AL0" secondAttribute="trailing" constant="20" id="cEI-ws-JiB"/>
                                 <constraint firstItem="ieN-cm-AL0" firstAttribute="leading" secondItem="uhg-gB-Otw" secondAttribute="trailing" constant="20" id="hf1-fd-ClL"/>
+                                <constraint firstItem="aBA-f9-Qrq" firstAttribute="leading" secondItem="GMv-Jz-6Yc" secondAttribute="leading" constant="20" id="qls-ZG-MlO"/>
+                                <constraint firstAttribute="bottom" secondItem="aBA-f9-Qrq" secondAttribute="bottom" id="xdW-dD-5DY"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -124,6 +132,9 @@
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
