@@ -1,5 +1,5 @@
 //
-//  ShoppingTableViewCell.swift
+//  BucketListTableViewCell.swift
 //  TrendMedia
 //
 //  Created by 이도헌 on 2022/07/19.
@@ -7,8 +7,12 @@
 
 import UIKit
 
-class ShoppingTableViewCell: UITableViewCell {
+class BucketListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var checkboxButton: UIButton!
+    @IBOutlet weak var bucketlistLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
