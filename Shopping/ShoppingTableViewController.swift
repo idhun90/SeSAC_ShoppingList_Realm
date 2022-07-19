@@ -5,6 +5,7 @@ class ShoppingTableViewController: UITableViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var headView: UIView!
+    @IBOutlet weak var subView: UIView! // Cell의 width와 concerRadius를 통일해주기 위해 추가
     
     var shopingList: [String] = []
     
@@ -12,10 +13,7 @@ class ShoppingTableViewController: UITableViewController {
         super.viewDidLoad()
         textFieldUI()
         addButtonUI()
-        headViewUI()
-        
-        
-        
+        subViewUI()
     }
 
     @IBAction func addList(_ sender: UIButton) {
@@ -59,6 +57,8 @@ class ShoppingTableViewController: UITableViewController {
         cell.favoritesButton.setImage(UIImage(systemName: "star"), for: .normal) // star.fill
         cell.favoritesButton.tintColor = .black
         
+        print(cell.layer.cornerRadius) // Cell의 cornerRadius 값은 10이다.
+        
 //        헤더뷰 너비 조절 실패,,
 //        tableView.tableHeaderView = headView
 //        tableView.tableHeaderView?.frame.width = cell.frame.width
@@ -94,7 +94,7 @@ class ShoppingTableViewController: UITableViewController {
     // 텍스트 필드 UI 초기화
     func textFieldUI() {
         searchTextField.placeholder = "무엇을 구매하실 건가요?"
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "무엇을 구매하실 건가요?", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "무엇을 구매하실 건가요?", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGray])
         searchTextField.borderStyle = .none
     }
     
@@ -107,10 +107,9 @@ class ShoppingTableViewController: UITableViewController {
     }
     
     
-    func headViewUI() {
-        headView.backgroundColor = .secondarySystemBackground
-        headView.layer.cornerRadius = 30
-        headView.layer.masksToBounds = true
+    func subViewUI() {
+        subView.backgroundColor = .secondarySystemBackground
+        subView.layer.cornerRadius = 10.0
     }
 
 }
