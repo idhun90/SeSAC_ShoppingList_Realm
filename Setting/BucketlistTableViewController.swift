@@ -9,33 +9,74 @@ import UIKit
 
 class BucketlistTableViewController: UITableViewController {
     
+    static let identifier = "BucketlistTableViewController"
+    
     // 객체들이 Table View Cell에 올라져 있어서 아울렛 변수를 올리 수 없다.
     // 테이블뷰쎌에 대한 파일을 만든다
     
     @IBOutlet weak var userTextField: UITextField!
     
+    // 7/22 데이터 저장 공간
+    var textfiledPlaceholder: String?
+    // 옵셔널 스트링 타입으로 선언해도 오류가 뜨지 않는 이유는?
+    //.placeholder 자체도 nil 값을 받는 옵셔널 타입이기 때문에
+    // 하지만 문자열 보간법이라면? X -> '??'로 처리
+    
+    
     var list = ["범죄도시2", "탑건", "마녀2", "토르"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //7.22
+        // 아울렛 변수에 바로 갑이 할당이 안 된다. -> 아울렛 변수는 스토리보드와 매칭이 되고 코드가 작성이 되는데, 바로 값을 할당하면 스토리보드가 구현되기 전에 실행되는 코드여서 nil이 발생한다.
+        userTextField.text = ""
+        userTextField.placeholder = "\(textfiledPlaceholder ?? "영화")를 입력해주세요"
+        //문자열 보간법에는 nil 값이 들어가면 안 되기 때문에 ?? 로 nil 처리를 해야 한다.
+        //-------
         list.append("마녀")
-        list.append("ㅁㅁㅁ")
+        
+        // 7/21 수업
+        navigationItem.title = "버킷리스트"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeButtonClicked))
 
+    }
+    
+    @objc func closeButtonClicked() {
+        self.dismiss(animated: true)
     }
 
     @IBAction func userTextFieldReturn(_ sender: UITextField) {
         
-        list.append(sender.text!)
-        print(list)
+        // swift 5.7에서 if let이 달라진다.....ㅠ
+        //case1 if let
+        if let value = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !value.isEmpty, (2...6).contains(value.count) {
+            list.append(value)
+            
+            //중요!
+            //데이터가 달라지는 시점에서 항상 테이블뷰 갱신을 요청
+            // tableView.numberOfRows(inSection: <#T##Int#>) // 등록되어 있는 열
+            // tableView.cellForRow(at: <#T##IndexPath#>) // 해당 열에 들어가는 내용들
+            // 이 두가지를 모두 호출하기 위해 아래 코드가 생겼다
+            tableView.reloadData()
+    //        tableView.reloadSections(<#T##sections: IndexSet##IndexSet#>, with: .fade)
+            // tableView.reloadRows(at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)], with: .fade)
+            
+        } else {
+            // 토스트 메시지 팝업 띄우기
+        }
+            
+        //case2 guard let 구문
+            guard let value = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !value.isEmpty, (2...6).contains(value.count) else {
+                // 문제 발생시 사용자에게 알려줘야 한다
+                return
+            }
+            list.append(value)
+            tableView.reloadData()
+            
         
-        //중요!
-        //데이터가 달라지는 시점에서 항상 테이블뷰 갱신을 요청
-        // tableView.numberOfRows(inSection: <#T##Int#>) // 등록되어 있는 열
-        // tableView.cellForRow(at: <#T##IndexPath#>) // 해당 열에 들어가는 내용들
-        // 이 두가지를 모두 호출하기 위해 아래 코드가 생겼다
-        tableView.reloadData()
-//        tableView.reloadSections(<#T##sections: IndexSet##IndexSet#>, with: .fade)
-        // tableView.reloadRows(at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)], with: .fade)
+//        list.append(sender.text!)
+        print(list)
         
     }
     

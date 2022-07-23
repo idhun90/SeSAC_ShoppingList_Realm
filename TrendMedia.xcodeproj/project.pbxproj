@@ -17,8 +17,17 @@
 		141039E32884FE3C00A122DD /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141039E22884FE3C00A122DD /* SettingTableViewController.swift */; };
 		141039E52885232200A122DD /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141039E42885232200A122DD /* Setting.storyboard */; };
 		141039E82885389700A122DD /* CaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141039E72885389700A122DD /* CaseTableViewController.swift */; };
+		144282102888E75000215F72 /* TrendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442820F2888E75000215F72 /* TrendTableViewController.swift */; };
 		148316842886F04800A90D72 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148316832886F04800A90D72 /* SearchTableViewController.swift */; };
 		148316862886F07C00A90D72 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148316852886F07C00A90D72 /* SearchTableViewCell.swift */; };
+		14A3229E288787170094FB20 /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3229D288787170094FB20 /* TestTableViewController.swift */; };
+		14A322A0288787480094FB20 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3229F288787480094FB20 /* TestTableViewCell.swift */; };
+		14A322A228878CA00094FB20 /* Moive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A322A128878CA00094FB20 /* Moive.swift */; };
+		14A322A4288795350094FB20 /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A322A3288795350094FB20 /* MovieInfo.swift */; };
+		14A322A628879AA10094FB20 /* RecommandCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A322A528879AA10094FB20 /* RecommandCollectionViewController.swift */; };
+		14A322A828879DF60094FB20 /* RecommandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A322A728879DF60094FB20 /* RecommandCollectionViewCell.swift */; };
+		14A322AB2887AE500094FB20 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 14A322AA2887AE500094FB20 /* Kingfisher */; };
+		14A322AE2887AE650094FB20 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 14A322AD2887AE650094FB20 /* Toast */; };
 		14BA74582886400C00E253CA /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BA74572886400C00E253CA /* Search.storyboard */; };
 		14BA745A2886404300E253CA /* Trend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BA74592886404300E253CA /* Trend.storyboard */; };
 		14BA745C2886407A00E253CA /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BA745B2886407A00E253CA /* Intro.storyboard */; };
@@ -46,8 +55,15 @@
 		141039E22884FE3C00A122DD /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		141039E42885232200A122DD /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		141039E72885389700A122DD /* CaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTableViewController.swift; sourceTree = "<group>"; };
+		1442820F2888E75000215F72 /* TrendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewController.swift; sourceTree = "<group>"; };
 		148316832886F04800A90D72 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		148316852886F07C00A90D72 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		14A3229D288787170094FB20 /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
+		14A3229F288787480094FB20 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		14A322A128878CA00094FB20 /* Moive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moive.swift; sourceTree = "<group>"; };
+		14A322A3288795350094FB20 /* MovieInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
+		14A322A528879AA10094FB20 /* RecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewController.swift; sourceTree = "<group>"; };
+		14A322A728879DF60094FB20 /* RecommandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewCell.swift; sourceTree = "<group>"; };
 		14BA74572886400C00E253CA /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		14BA74592886404300E253CA /* Trend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trend.storyboard; sourceTree = "<group>"; };
 		14BA745B2886407A00E253CA /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
@@ -67,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A322AE2887AE650094FB20 /* Toast in Frameworks */,
+				14A322AB2887AE500094FB20 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +131,10 @@
 				14BA745B2886407A00E253CA /* Intro.storyboard */,
 				14BA74632886478E00E253CA /* UITextField+Extention.swift */,
 				141039E42885232200A122DD /* Setting.storyboard */,
+				14A3229F288787480094FB20 /* TestTableViewCell.swift */,
+				14A3229D288787170094FB20 /* TestTableViewController.swift */,
+				14A322A128878CA00094FB20 /* Moive.swift */,
+				14A322A3288795350094FB20 /* MovieInfo.swift */,
 				141039E72885389700A122DD /* CaseTableViewController.swift */,
 				14BA74572886400C00E253CA /* Search.storyboard */,
 				148316852886F07C00A90D72 /* SearchTableViewCell.swift */,
@@ -120,6 +142,9 @@
 				14BA745F2886440B00E253CA /* SearchViewController.swift */,
 				14BA74612886453200E253CA /* UIViewController+Extenstion.swift */,
 				14BA74592886404300E253CA /* Trend.storyboard */,
+				1442820F2888E75000215F72 /* TrendTableViewController.swift */,
+				14A322A728879DF60094FB20 /* RecommandCollectionViewCell.swift */,
+				14A322A528879AA10094FB20 /* RecommandCollectionViewController.swift */,
 				14BA746528864B9800E253CA /* BucketlistTableViewController.swift */,
 				14BA746728864D9800E253CA /* BucketListTableViewCell.swift */,
 				14BA745D288643FA00E253CA /* TrendViewController.swift */,
@@ -153,6 +178,10 @@
 			dependencies = (
 			);
 			name = TrendMedia;
+			packageProductDependencies = (
+				14A322AA2887AE500094FB20 /* Kingfisher */,
+				14A322AD2887AE650094FB20 /* Toast */,
+			);
 			productName = TrendMedia;
 			productReference = 141039C92884DDEC00A122DD /* TrendMedia.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +210,10 @@
 				Base,
 			);
 			mainGroup = 141039C02884DDEC00A122DD;
+			packageReferences = (
+				14A322A92887AE500094FB20 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				14A322AC2887AE650094FB20 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 141039CA2884DDEC00A122DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -214,21 +247,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A322A228878CA00094FB20 /* Moive.swift in Sources */,
+				14A322A4288795350094FB20 /* MovieInfo.swift in Sources */,
 				141039E82885389700A122DD /* CaseTableViewController.swift in Sources */,
 				14BA746E288672BF00E253CA /* ShoppingTableViewCell.swift in Sources */,
 				14BA746C2886727400E253CA /* ShoppingTableViewController.swift in Sources */,
 				148316842886F04800A90D72 /* SearchTableViewController.swift in Sources */,
+				14A322A0288787480094FB20 /* TestTableViewCell.swift in Sources */,
 				14BA746828864D9800E253CA /* BucketListTableViewCell.swift in Sources */,
 				14BA74602886440B00E253CA /* SearchViewController.swift in Sources */,
 				141039E32884FE3C00A122DD /* SettingTableViewController.swift in Sources */,
 				141039D12884DDEC00A122DD /* ViewController.swift in Sources */,
+				14A322A628879AA10094FB20 /* RecommandCollectionViewController.swift in Sources */,
 				141039CD2884DDEC00A122DD /* AppDelegate.swift in Sources */,
+				144282102888E75000215F72 /* TrendTableViewController.swift in Sources */,
 				148316862886F07C00A90D72 /* SearchTableViewCell.swift in Sources */,
 				14BA745E288643FA00E253CA /* TrendViewController.swift in Sources */,
 				141039CF2884DDEC00A122DD /* SceneDelegate.swift in Sources */,
 				14BA746628864B9800E253CA /* BucketlistTableViewController.swift in Sources */,
 				14BA74642886478E00E253CA /* UITextField+Extention.swift in Sources */,
 				14BA74622886453200E253CA /* UIViewController+Extenstion.swift in Sources */,
+				14A322A828879DF60094FB20 /* RecommandCollectionViewCell.swift in Sources */,
+				14A3229E288787170094FB20 /* TestTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +484,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14A322A92887AE500094FB20 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		14A322AC2887AE650094FB20 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14A322AA2887AE500094FB20 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14A322A92887AE500094FB20 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		14A322AD2887AE650094FB20 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14A322AC2887AE650094FB20 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 141039C12884DDEC00A122DD /* Project object */;
 }

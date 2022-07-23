@@ -16,7 +16,48 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        UserDefaults.standard.set(false, forKey: "First")
+        // 다른 화면에 배치해야 한다. 조건이 항상 같기 때문에
+        // true이면 환영합니다 viewController, false SearchTableViewContrller를 띄운다.
+        
+        // 중복 되는 코드 밖으로 빼기
+        
+//        guard let _ = (scene as? UIWindowScene) else { return } // 기본적으로 스토리보드에서 작업할 수 있도록 애플이 구현한 코드이다. 우리가 직접 코드로 화면을 만들고 루트뷰를 만들려면 아래로 따로 생성해야 하기 때문이다. // var window: UIWindow? 이걸 통해서
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene) // 하나의 씬을 윈도우에 생성해줌
+        
+        if UserDefaults.standard.bool(forKey: "First") {
+            
+            //        와일드 카드에서 상수명 지정
+                    
+                    // 가장 첫번째로 뜰 화면, 루트뷰를 생성
+                    let sb = UIStoryboard(name: "Trend", bundle: nil)
+                    let vc = sb.instantiateViewController(withIdentifier: "TrendViewController") as! TrendViewController
+                    // 첫 시작화면 만들기
+                    window?.rootViewController = vc
+                    // 루트뷰 설정만 했지만 디바이스에 비춰주기 위한 추가 코드가 필요
+            
+        } else {
+            //        와일드 카드에서 상수명 지정
+                    
+                    // 가장 첫번째로 뜰 화면, 루트뷰를 생성
+                    let sb = UIStoryboard(name: "Search", bundle: nil)
+                    let vc = sb.instantiateViewController(withIdentifier: "SearchTableViewController") as! SearchTableViewController
+                    // 첫 시작화면 만들기
+//                    window?.rootViewController = vc
+            window?.rootViewController = UINavigationController(rootViewController: vc) // 네비게이션 추가
+                    // 루트뷰 설정만 했지만 디바이스에 비춰주기 위한 추가 코드가 필요
+        }
+        
+        window?.makeKeyAndVisible()
+        
+        
+        
+
+
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

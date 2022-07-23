@@ -17,6 +17,24 @@ class SearchTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "처음으로", style: .plain, target: self, action: #selector(resetButtonClcked))
+        
+    }
+    
+    @objc func resetButtonClcked() {
+        // iOS 13 이상, SceneDelegate 쓸 떄 동작하는 코드
+        // 로그아웃하면 가장 첫 메인 화면을 보여주는 코드. pop, dismiss로 화면전환을 추천하지 않는다.
+        // UIApplication.shared.connectedScenes.first 코드는 AppDelegate가 담당하는 업무인데, 이 업무를 AppDelegate에서 가져와 SceneDelegate로 전달해주는 과정
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene // 처음으로 켜진 화면 처럼 연결했던 것처럼 보여주기 코드
+        // ㅅ이렇게 바꿔주면 기존에 쌓여있던 화면이 모두 메모리에서 내려간다.
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate // 생명주기를 관리하는 Scendelegate에 접근
+        
+        let sb = UIStoryboard(name: "Trend", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "TrendViewController") as! TrendViewController
+        
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,5 +61,25 @@ class SearchTableViewController: UITableViewController {
         cell.storyLabel.textAlignment = .natural
         
         return cell
+    }
+    
+    // 7/21
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("didSelectRowAt") // 동작하지 않은 원인, 1. Tableview가 noSelection 상태일 때, 2. Cell 위에 전체 버튼이 있을 때
+        let sb = UIStoryboard(name: "Trend", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "RecommandCollectionViewController") as! RecommandCollectionViewController
+        
+//        let nav = UINavigationController(rootViewController: vc)
+        
+        // 7.22일 수업
+        //2. 값 전달 - vc가 가지고 있는 프로퍼티에 데이터 추가
+//        vc.movieTitle = movieList.movie[indexPath.row].title
+        let title = movieName[indexPath.row]
+        let release = movieReleaseTime[indexPath.row]
+        vc.movieTitle = "\(title), \(release)"
+//        vc.movieData = movieList.movie[indexPath.row]
+        
+        self.navigationController?.pushViewController(vc, animated: true) // 네비게이션 컨트롤러가 있으면 푸쉬해라
     }
 }
