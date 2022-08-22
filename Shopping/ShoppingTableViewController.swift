@@ -23,20 +23,27 @@ class ShoppingTableViewController: UITableViewController {
         textFieldUI()
         addButtonUI()
         subViewUI()
-        //08.22 추가
+        // 8.22일 추가
         savedRealmData()
+        print("=====현재 tasks 갯수: \(tasks.count)=====")
     }
 
     @IBAction func addList(_ sender: UIButton) {
         // 8.22일 추가
-        let task = UserShoppinglist(list: searchTextField.text!, created: Date())
+        guard let text = searchTextField.text else { return }
+        if text.trimmingCharacters(in: .whitespaces).isEmpty {
+            showAlertMessage()
+        } else {
+            let task = UserShoppinglist(list: text, created: Date())
         
-        try! localRealm.write {
-            localRealm.add(task)
-            print("Realm Succeed")
-            savedRealmData()
-            tableView.reloadData()
+            try! localRealm.write {
+                localRealm.add(task)
+                print("Realm Succeed")
+                savedRealmData()
+                tableView.reloadData()
+            }
         }
+        
         
 //        shopingList.append(searchTextField.text!)
 //        tableView.reloadData()
@@ -46,28 +53,43 @@ class ShoppingTableViewController: UITableViewController {
     
     @IBAction func addListByReturn(_ sender: UITextField) {
         // 8.22일 추가
-        let task = UserShoppinglist(list: searchTextField.text!, created: Date())
-        
-        try! localRealm.write {
-            localRealm.add(task)
-            print("Realm Succeed")
-            savedRealmData()
-            tableView.reloadData()
+        guard let text = sender.text else { return }
+        if text.trimmingCharacters(in: .whitespaces).isEmpty {
+            showAlertMessage()
+        } else {
+            let task = UserShoppinglist(list: searchTextField.text!, created: Date())
+            
+            try! localRealm.write {
+                localRealm.add(task)
+                print("Realm Succeed")
+                savedRealmData()
+                tableView.reloadData()
+            }
         }
+        
 //        shopingList.append(searchTextField.text!)
 //        tableView.reloadData()
 //        searchTextField.text = ""
         
     }
     
+    // 8.22일 추가
     // RealmData 변수에 담기
     func savedRealmData() {
         tasks = localRealm.objects(UserShoppinglist.self).sorted(byKeyPath: "list", ascending: true)
     }
+    // 8.22일 추가
+    func showAlertMessage() {
+        let alert = UIAlertController(title: "텍스트를 입력하세요.", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return shopingList.count
-        //08.22
+        // 8.22일 추가
         return tasks.count
     }
     
@@ -77,7 +99,7 @@ class ShoppingTableViewController: UITableViewController {
         
         // Cell label
         //cell.checkListLabel.text = shopingList[indexPath.row]
-        //0822
+        // 8.22일 추가
         cell.checkListLabel.text = tasks[indexPath.row].list
         cell.backgroundColor = .secondarySystemBackground
         cell.checkListLabel.textColor = .black
@@ -107,7 +129,7 @@ class ShoppingTableViewController: UITableViewController {
     // 스와이프 디폴트 구현
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //0822
+            // 8.22일 추가
             let taskToDelete = tasks[indexPath.row]
             try! localRealm.write {
                 localRealm.delete(taskToDelete)
