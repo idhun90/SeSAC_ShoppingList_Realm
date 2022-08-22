@@ -57,7 +57,7 @@ class ShoppingTableViewController: UITableViewController {
         if text.trimmingCharacters(in: .whitespaces).isEmpty {
             showAlertMessage()
         } else {
-            let task = UserShoppinglist(list: searchTextField.text!, created: Date())
+            let task = UserShoppinglist(list: text, created: Date())
             
             try! localRealm.write {
                 localRealm.add(task)
