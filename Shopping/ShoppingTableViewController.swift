@@ -1,5 +1,7 @@
 import UIKit
 
+import RealmSwift
+
 class ShoppingTableViewController: UITableViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
@@ -9,41 +11,74 @@ class ShoppingTableViewController: UITableViewController {
     
     var shopingList: [String] = []
     
+    // 8.22일 추가
+    // 경로 접근
+    let localRealm = try! Realm()
+    
+    // 저장된 Realm 데이터 담을 변수
+    var tasks: Results<UserShoppinglist>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldUI()
         addButtonUI()
         subViewUI()
+        //08.22 추가
+        savedRealmData()
     }
 
     @IBAction func addList(_ sender: UIButton) {
+        // 8.22일 추가
+        let task = UserShoppinglist(list: searchTextField.text!, created: Date())
         
-        shopingList.append(searchTextField.text!)
-        tableView.reloadData()
-        searchTextField.text = "" // 버튼을 누르고 텍스트필드 빈공간으로 변경
+        try! localRealm.write {
+            localRealm.add(task)
+            print("Realm Succeed")
+            savedRealmData()
+            tableView.reloadData()
+        }
+        
+//        shopingList.append(searchTextField.text!)
+//        tableView.reloadData()
+//        searchTextField.text = ""
         
     }
     
     @IBAction func addListByReturn(_ sender: UITextField) {
+        // 8.22일 추가
+        let task = UserShoppinglist(list: searchTextField.text!, created: Date())
         
-        shopingList.append(searchTextField.text!)
-        tableView.reloadData()
-        searchTextField.text = "" // 버튼을 누르고 텍스트필드 빈공간으로 변경
+        try! localRealm.write {
+            localRealm.add(task)
+            print("Realm Succeed")
+            savedRealmData()
+            tableView.reloadData()
+        }
+//        shopingList.append(searchTextField.text!)
+//        tableView.reloadData()
+//        searchTextField.text = ""
         
     }
     
+    // RealmData 변수에 담기
+    func savedRealmData() {
+        tasks = localRealm.objects(UserShoppinglist.self).sorted(byKeyPath: "list", ascending: true)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        shopingList.count
-        
+        //return shopingList.count
+        //08.22
+        return tasks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingTableViewCell", for: indexPath) as! ShoppingTableViewCell
         
-        // Cell lable
-        cell.checkListLabel.text = shopingList[indexPath.row]
+        // Cell label
+        //cell.checkListLabel.text = shopingList[indexPath.row]
+        //0822
+        cell.checkListLabel.text = tasks[indexPath.row].list
         cell.backgroundColor = .secondarySystemBackground
         cell.checkListLabel.textColor = .black
         cell.checkListLabel.font = .systemFont(ofSize: 16)
@@ -56,14 +91,7 @@ class ShoppingTableViewController: UITableViewController {
         cell.favoritesButton.setTitle("", for: .normal)
         cell.favoritesButton.setImage(UIImage(systemName: "star"), for: .normal) // star.fill
         cell.favoritesButton.tintColor = .black
-        
-        print(cell.layer.cornerRadius) // Cell의 cornerRadius 값은 10이다.
-        
-//        헤더뷰 너비 조절 실패,,
-//        tableView.tableHeaderView = headView
-//        tableView.tableHeaderView?.frame.width = cell.frame.width
-        
-        
+
         return cell
     }
     
@@ -78,10 +106,15 @@ class ShoppingTableViewController: UITableViewController {
     
     // 스와이프 디폴트 구현
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
         if editingStyle == .delete {
-            shopingList.remove(at: indexPath.row)
-            tableView.reloadData()
+            //0822
+            let taskToDelete = tasks[indexPath.row]
+            try! localRealm.write {
+                localRealm.delete(taskToDelete)
+                tableView.reloadData()
+            }
+            //shopingList.remove(at: indexPath.row)
+            //tableView.reloadData()
         }
     }
     
@@ -111,5 +144,6 @@ class ShoppingTableViewController: UITableViewController {
         subView.backgroundColor = .secondarySystemBackground
         subView.layer.cornerRadius = 10.0
     }
+    
 
 }
