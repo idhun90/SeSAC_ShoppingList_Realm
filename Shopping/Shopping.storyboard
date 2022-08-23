@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,7 +76,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAt-ny-rm6">
-                                            <rect key="frame" x="70" y="23" width="220" height="44"/>
+                                            <rect key="frame" x="84" y="23" width="206" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="I1p-ND-Fce"/>
                                             </constraints>
@@ -93,28 +92,36 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                            <connections>
+                                                <action selector="clickedFavoriteButton:" destination="zFI-UV-rpf" eventType="touchUpInside" id="x3r-Kq-GNV"/>
+                                            </connections>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EMp-xc-4bz">
-                                            <rect key="frame" x="20" y="31" width="30" height="27.5"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkr-rt-XvH">
+                                            <rect key="frame" x="20" y="23" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="EMp-xc-4bz" secondAttribute="height" multiplier="1:1" id="sfB-S7-S6T"/>
-                                                <constraint firstAttribute="height" constant="30" id="zCf-ig-1nl"/>
+                                                <constraint firstAttribute="height" constant="44" id="Z2d-71-xEc"/>
+                                                <constraint firstAttribute="width" constant="44" id="hmp-Fu-vx8"/>
+                                                <constraint firstAttribute="width" secondItem="gkr-rt-XvH" secondAttribute="height" id="xfb-tT-A4A"/>
                                             </constraints>
-                                            <imageReference key="image" image="checkmark.square" catalog="system" symbolScale="default"/>
-                                        </imageView>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="checkmark.square" catalog="system"/>
+                                            <connections>
+                                                <action selector="clickedTodoButton:" destination="zFI-UV-rpf" eventType="touchUpInside" id="fBC-Eo-muX"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="EMp-xc-4bz" firstAttribute="centerY" secondItem="ypg-85-ThM" secondAttribute="centerY" id="8wU-QO-Wem"/>
                                         <constraint firstItem="4XB-cW-YPa" firstAttribute="centerY" secondItem="ypg-85-ThM" secondAttribute="centerY" id="CZI-xe-h4k"/>
-                                        <constraint firstItem="EMp-xc-4bz" firstAttribute="leading" secondItem="ypg-85-ThM" secondAttribute="leading" constant="20" id="EXm-Hl-SSQ"/>
-                                        <constraint firstItem="iAt-ny-rm6" firstAttribute="leading" secondItem="EMp-xc-4bz" secondAttribute="trailing" constant="20" id="X2u-dq-8A7"/>
                                         <constraint firstItem="4XB-cW-YPa" firstAttribute="leading" secondItem="iAt-ny-rm6" secondAttribute="trailing" constant="20" id="fWD-7c-zC3"/>
+                                        <constraint firstItem="gkr-rt-XvH" firstAttribute="leading" secondItem="ypg-85-ThM" secondAttribute="leading" constant="20" id="gnv-cY-mQu"/>
                                         <constraint firstItem="iAt-ny-rm6" firstAttribute="centerY" secondItem="ypg-85-ThM" secondAttribute="centerY" id="seh-g8-LD4"/>
+                                        <constraint firstItem="iAt-ny-rm6" firstAttribute="leading" secondItem="gkr-rt-XvH" secondAttribute="trailing" constant="20" id="sn3-r7-KOn"/>
+                                        <constraint firstItem="gkr-rt-XvH" firstAttribute="centerY" secondItem="ypg-85-ThM" secondAttribute="centerY" id="t8B-t8-DLj"/>
                                         <constraint firstAttribute="trailing" secondItem="4XB-cW-YPa" secondAttribute="trailing" constant="20" id="wcv-3B-exT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkImage" destination="EMp-xc-4bz" id="kUk-JU-qnX"/>
+                                    <outlet property="checkButton" destination="gkr-rt-XvH" id="iJf-sS-D0x"/>
                                     <outlet property="checkListLabel" destination="iAt-ny-rm6" id="V1I-XB-CEp"/>
                                     <outlet property="favoritesButton" destination="4XB-cW-YPa" id="yBB-oY-o0A"/>
                                 </connections>

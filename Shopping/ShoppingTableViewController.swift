@@ -26,6 +26,7 @@ class ShoppingTableViewController: UITableViewController {
         // 8.22일 추가
         savedRealmData()
         print("=====현재 tasks 갯수: \(tasks.count)=====")
+        print("Realm is located at:", localRealm.configuration.fileURL!)
     }
 
     @IBAction func addList(_ sender: UIButton) {
@@ -72,6 +73,25 @@ class ShoppingTableViewController: UITableViewController {
 //        searchTextField.text = ""
         
     }
+    @IBAction func clickedFavoriteButton(_ sender: UIButton) {
+        
+        try! self.localRealm.write {
+            self.tasks[sender.tag].favorite = !self.tasks[sender.tag].favorite
+            print("즐겨찾기 버튼 Bool값 변경")
+        }
+        tableView.reloadData()
+        
+    }
+    
+    @IBAction func clickedTodoButton(_ sender: UIButton) {
+        
+        try! self.localRealm.write {
+            self.tasks[sender.tag].todo = !self.tasks[sender.tag].todo
+            print("체크 버튼 Bool값 변경")
+        }
+        tableView.reloadData()
+        
+    }
     
     // 8.22일 추가
     // RealmData 변수에 담기
@@ -97,23 +117,12 @@ class ShoppingTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingTableViewCell", for: indexPath) as! ShoppingTableViewCell
         
-        // Cell label
-        //cell.checkListLabel.text = shopingList[indexPath.row]
-        // 8.22일 추가
-        cell.checkListLabel.text = tasks[indexPath.row].list
-        cell.backgroundColor = .secondarySystemBackground
-        cell.checkListLabel.textColor = .black
-        cell.checkListLabel.font = .systemFont(ofSize: 16)
-        
-        // Cell Image
-        cell.checkImage.image = UIImage(systemName: "checkmark.square") //checkmark.square: 화이트 checkmark.square.fill:
-        cell.checkImage.tintColor = .black
-        
-        // Cell Button
-        cell.favoritesButton.setTitle("", for: .normal)
-        cell.favoritesButton.setImage(UIImage(systemName: "star"), for: .normal) // star.fill
-        cell.favoritesButton.tintColor = .black
 
+        cell.checkButton.tag = indexPath.row
+        cell.favoritesButton.tag = indexPath.row
+        
+        cell.setData(data: tasks[indexPath.row])
+        
         return cell
     }
     
