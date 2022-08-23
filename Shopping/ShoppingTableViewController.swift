@@ -18,6 +18,7 @@ class ShoppingTableViewController: UITableViewController {
     
     // 저장된 Realm 데이터 담을 변수
     var tasks: Results<UserShoppinglist>!
+    var sendDataHandler: (() ->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -188,6 +189,16 @@ class ShoppingTableViewController: UITableViewController {
             //shopingList.remove(at: indexPath.row)
             //tableView.reloadData()
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(#function)
+        let vc = DetailViewController()
+        sendDataHandler = {
+            vc.label.text = self.tasks[indexPath.row].list
+        }
+        sendDataHandler?()
+        self.present(vc, animated: true)
     }
     
 //    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
