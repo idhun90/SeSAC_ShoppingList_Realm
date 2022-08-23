@@ -20,7 +20,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBA-f9-Qrq">
-                                    <rect key="frame" x="20" y="61" width="374" height="83"/>
+                                    <rect key="frame" x="20" y="60.5" width="374" height="83.5"/>
                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 </view>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-gB-Otw">
@@ -47,17 +47,27 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쇼핑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dld-01-y16">
-                                    <rect key="frame" x="192.5" y="20" width="29.5" height="21"/>
+                                    <rect key="frame" x="192.5" y="20" width="29.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEP-Lj-5Qh">
+                                    <rect key="frame" x="349" y="10" width="45" height="31"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="ellipsis.circle" catalog="system"/>
+                                    <connections>
+                                        <action selector="clickedUIMenuButton:" destination="zFI-UV-rpf" eventType="touchUpInside" id="fKj-Kk-1Y0"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="gEP-Lj-5Qh" secondAttribute="trailing" constant="20" id="06N-Na-vKc"/>
                                 <constraint firstAttribute="trailing" secondItem="aBA-f9-Qrq" secondAttribute="trailing" constant="20" id="0yK-dz-z6y"/>
                                 <constraint firstItem="uhg-gB-Otw" firstAttribute="leading" secondItem="aBA-f9-Qrq" secondAttribute="leading" constant="20" id="DCs-1s-oN5"/>
                                 <constraint firstItem="aBA-f9-Qrq" firstAttribute="top" secondItem="dld-01-y16" secondAttribute="bottom" constant="20" id="IYM-j2-AiV"/>
                                 <constraint firstItem="ieN-cm-AL0" firstAttribute="centerY" secondItem="aBA-f9-Qrq" secondAttribute="centerY" id="LFT-KG-6aI"/>
+                                <constraint firstItem="gEP-Lj-5Qh" firstAttribute="top" secondItem="GMv-Jz-6Yc" secondAttribute="top" constant="10" id="V0U-fU-phZ"/>
                                 <constraint firstItem="dld-01-y16" firstAttribute="top" secondItem="GMv-Jz-6Yc" secondAttribute="top" constant="20" id="WTl-4r-FB7"/>
                                 <constraint firstItem="uhg-gB-Otw" firstAttribute="centerY" secondItem="aBA-f9-Qrq" secondAttribute="centerY" id="YT8-cK-S7j"/>
                                 <constraint firstItem="aBA-f9-Qrq" firstAttribute="trailing" secondItem="ieN-cm-AL0" secondAttribute="trailing" constant="20" id="cEI-ws-JiB"/>
@@ -137,6 +147,7 @@
                         <outlet property="headView" destination="GMv-Jz-6Yc" id="URA-DW-4be"/>
                         <outlet property="searchTextField" destination="uhg-gB-Otw" id="0P1-g8-xnU"/>
                         <outlet property="subView" destination="aBA-f9-Qrq" id="SrI-An-Xzc"/>
+                        <outlet property="uimenuButton" destination="gEP-Lj-5Qh" id="n6f-jO-dt4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ice-qu-Ak5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,6 +157,7 @@
     </scenes>
     <resources>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

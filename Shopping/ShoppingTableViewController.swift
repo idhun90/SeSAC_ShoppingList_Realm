@@ -8,6 +8,7 @@ class ShoppingTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var headView: UIView!
     @IBOutlet weak var subView: UIView! // Cell의 width와 concerRadius를 통일해주기 위해 추가
+    @IBOutlet weak var uimenuButton: UIButton!
     
     var shopingList: [String] = []
     
@@ -27,8 +28,48 @@ class ShoppingTableViewController: UITableViewController {
         savedRealmData()
         print("=====현재 tasks 갯수: \(tasks.count)=====")
         print("Realm is located at:", localRealm.configuration.fileURL!)
+     
+    }
+    
+    func sorted(keyPath: String, ascending: Bool) {
+        tasks = localRealm.objects(UserShoppinglist.self).sorted(byKeyPath: keyPath, ascending: ascending)
+        tableView.reloadData()
     }
 
+    @IBAction func clickedUIMenuButton(_ sender: UIButton) {
+        
+        var childeren: [UIAction] {
+            
+            let favorite = UIAction(title: "즐겨찾기", image: UIImage(systemName: "star"), identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                self.sorted(keyPath: "favorite", ascending: false)
+                print("즐겨찾기")
+               
+                
+            }
+            
+            let title = UIAction(title: "제목", image: UIImage(systemName: "textformat.size.smaller.ko"), state: .off) { _ in
+                self.sorted(keyPath: "list", ascending: true)
+                print("제목")
+                
+            }
+            
+            let todo = UIAction(title: "할 일", image: UIImage(systemName: "checkmark.square"), identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                self.sorted(keyPath: "todo", ascending: false)
+                print("할 일")
+                
+            }
+            
+            return [title, favorite, todo]
+        }
+
+        let menu = UIMenu(title: "다음으로 정렬", image: UIImage(systemName: "star"), identifier: nil, options: .destructive, children: childeren)
+        
+        uimenuButton.menu = menu
+        uimenuButton.showsMenuAsPrimaryAction = true
+        
+        
+    }
+    
     @IBAction func addList(_ sender: UIButton) {
         // 8.22일 추가
         guard let text = searchTextField.text else { return }
